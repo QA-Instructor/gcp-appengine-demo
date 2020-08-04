@@ -1,0 +1,12 @@
+{
+  "filename": "cloudbuild.yaml",
+  "github": {
+    "push": {
+      "branch": "^master$"
+    },
+    "owner": "danizheleva",
+    "name": "demo-2T-AppEngine"
+    },
+  "name": "push-to-master"
+}
+
