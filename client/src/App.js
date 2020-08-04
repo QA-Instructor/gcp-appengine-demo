@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          I am a simple react app, running inside GCP AppEngine.
-        </p>
-        <a
-          className="App-link"
-          href="https://cloud.google.com/appengine"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn GCP AppEngine
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    result: []
+  }
+
+  componentDidMount() {
+    fetch('/api/')
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({result: data})
+      })
+      .catch(console.log)
+  }
+
+  render() {
+    return (
+    <h2>{this.state.result}</h2>
+    );
+  }
 }
 
 export default App;
