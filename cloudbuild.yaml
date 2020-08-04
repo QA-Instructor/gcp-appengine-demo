@@ -7,7 +7,7 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/gcp-appengine-demo']
   #Deploy image
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy', "--image-url=gcr.io/${PROJECT_ID}/gcp-appengine-demo", "./client"]
+    args: ['app', 'deploy', "--image-url=gcr.io/${PROJECT_ID}/gcp-appengine-demo", "./client/client.yaml"]
     timeout: '1600s'
   #Build api image
   - name: 'gcr.io/cloud-builders/docker'
@@ -17,7 +17,7 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/gcp-appengine-demo']
   #Deploy api
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy', "--image-url=gcr.io/${PROJECT_ID}/gcp-appengine-demo", "./api"]
+    args: ['app', 'deploy', "--image-url=gcr.io/${PROJECT_ID}/gcp-appengine-demo", "./api/api.yaml"]
     timeout: '1600s'
 images:
   - gcr.io/$PROJECT_ID/gcp-appengine-demo
