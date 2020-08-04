@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class DemoController {
 
     @Autowired
     private DemoTableRepository demoTableRepository;
 
-   @GetMapping("")
+   @GetMapping("/")
    public String test() {
+       System.out.println("API CALLED");
        return "HELLO WORLD";
    }
 
