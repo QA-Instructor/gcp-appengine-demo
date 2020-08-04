@@ -19,6 +19,9 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', "--image-url=gcr.io/${PROJECT_ID}/gcp-appengine-demo-api", "./api/api.yaml"]
     timeout: 1200s
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', "dispatch.yaml"]
+    timeout: 1200s
 timeout: 1200s
 images:
   - gcr.io/$PROJECT_ID/gcp-appengine-demo
